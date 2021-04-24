@@ -1,4 +1,5 @@
 name: DeployToGitHubPages
+
 env:
   PUBLISH_DIR: bin/Release/netstandard2.1/publish/wwwroot
   # Include subfolders if needed
@@ -11,6 +12,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Change Directory
+      run: cd YouthWithRoll
     - uses: actions/checkout@v2
 
     - name: Publish app
