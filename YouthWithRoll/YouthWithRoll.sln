@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouthWithRoll", "YouthWithRoll.csproj", "{CE99C766-1885-4ED9-94E8-E05803C34204}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE99C766-1885-4ED9-94E8-E05803C34204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE99C766-1885-4ED9-94E8-E05803C34204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE99C766-1885-4ED9-94E8-E05803C34204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE99C766-1885-4ED9-94E8-E05803C34204}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {507575C2-2F48-40A5-96B9-CCF9F816B839}
+	EndGlobalSection
+EndGlobal
