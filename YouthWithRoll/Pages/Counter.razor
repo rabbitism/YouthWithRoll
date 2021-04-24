@@ -1,12 +1,15 @@
 ﻿@page "/counter"
+@using YouthWithRoll.Controls; 
+
 
 <h1>Counter</h1>
 
-<img src="https://u9.iqiyipic.com/feige/20210129/d7/26/feige_26d70a462ff541f3b19f07f87f223c77_default.jpg" />
 
 <p>Current count: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<TrainerCard></TrainerCard>
 
 @code {
     private int currentCount = 0;
