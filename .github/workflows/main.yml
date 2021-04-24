@@ -12,11 +12,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Change Directory
-      run: cd YouthWithRoll
+
     - uses: actions/checkout@v2
 
     - name: Publish app
+      run: cd YouthWithRoll
       run: dotnet publish -c Release
       # You can use cd before if your project is in a subfolder
 
