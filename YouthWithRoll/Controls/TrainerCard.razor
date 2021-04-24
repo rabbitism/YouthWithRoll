@@ -1,4 +1,12 @@
 ﻿@if (TrainerModel != null) { 
-    <img src="@(TrainerModel.PicName)" style="height:50px; width:50px" />
-    <p>@TrainerModel.Name</p>
+<div class="card" style="width: 6rem;margin:4px">
+    <img class="card-img" src="@(TrainerModel.PicName)"/>
+    <div>
+        @if (Rank > 0)
+        {
+            <span class="badge badge-secondary" style="margin-right:4px">@Rank</span>
+        }
+        <span>@TrainerModel.Name</span>
+    </div>
+</div>
 }

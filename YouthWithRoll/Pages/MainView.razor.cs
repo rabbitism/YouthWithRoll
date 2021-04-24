@@ -13,6 +13,8 @@ namespace YouthWithRoll.Pages
     {
         public List<Trainer> Trainers { get; set; }
 
+        public List<List<Trainer>> Rankings { get; set; }
+
         [Inject]
         private HttpClient Http { get; set; }
 
