@@ -9,7 +9,8 @@ namespace YouthWithRoll.Controls
 {
     public partial class TrainerCard
     {
-        public int Rank { get; set; } = 2;
+        [Parameter]
+        public int Rank { get; set; } = 0;
 
         [Parameter]
         public Trainer TrainerModel { get; set; }

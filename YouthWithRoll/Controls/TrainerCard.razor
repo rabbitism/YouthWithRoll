@@ -2,11 +2,11 @@
 <div class="card" style="width: 6rem;margin:4px">
     <img class="card-img" src="@(TrainerModel.PicName)"/>
     <div>
-        @if (Rank > 0)
+        @if (TrainerModel.Rank > 0)
         {
-            <span class="badge badge-secondary" style="margin-right:4px">@Rank</span>
+            <span class="badge  badge-secondary" style="margin-right:2px; margin-left:2px">@TrainerModel.Rank</span>
         }
-        <span>@TrainerModel.Name</span>
+        <span style="font-size:smaller; text-align:center; margin-left:auto; margin-right:auto" >@TrainerModel.Name</span>
     </div>
 </div>
 }

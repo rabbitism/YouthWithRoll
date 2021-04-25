@@ -10,5 +10,6 @@ namespace YouthWithRoll.Models
         public string Name { get; set; }
         public int Id { get; set; }
         public string PicName { get; set; }
+        public int Rank { get; set; } = 0;
     }
 }

@@ -1,12 +1,26 @@
 ﻿@using YouthWithRoll.Models;
 
-<div>
-    <ul >
-        @foreach(Trainer trainer in Trainers)
+<div class="container" style="max-width:50rem; background:#004edb">
+    <img style="width:100%; height:auto" src="banner.jpg" alt="image" />
+    <div style="margin-top: -100px;">
+        <button class="btn btn-danger" @onclick="Roll">摇一下</button>
+        <button class="btn btn-danger" @onclick="Reset">重置</button>
+        <p style="color:white">@Tooltip</p>
+        <ul>
+            @foreach (Trainer trainer in RankedTrainers)
             {
                 <li style="display:inline-block">
                     <YouthWithRoll.Controls.TrainerCard TrainerModel="trainer"></YouthWithRoll.Controls.TrainerCard>
                 </li>
             }
-    </ul>
+        </ul>
+        <ul>
+            @foreach (Trainer trainer in Trainers)
+            {
+                <li style="display:inline-block">
+                    <YouthWithRoll.Controls.TrainerCard TrainerModel="trainer"></YouthWithRoll.Controls.TrainerCard>
+                </li>
+            }
+        </ul>
+    </div>
 </div>
