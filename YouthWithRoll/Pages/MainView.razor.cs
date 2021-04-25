@@ -14,6 +14,10 @@ namespace YouthWithRoll.Pages
         private List<(int, int)> _rankOrders = new List<(int, int)>();
         private int _level = 0;
         private Random _random = new Random();
+        private HashSet<int> _top20Ids = new HashSet<int>()
+        {
+            10,22,23,24,31,45,48,49,50,56,62,71,74,75,77,82,90,93,97,98
+        };
         public List<Trainer> Trainers { get; set; } = new List<Trainer>();
 
         public List<Trainer> RankedTrainers { get; set; } = new List<Trainer>();
@@ -95,14 +99,29 @@ namespace YouthWithRoll.Pages
         {
             RankedTrainers.Clear();
             Trainers.Clear();
+            InitializeRanks();
             Trainers = (await Http.GetFromJsonAsync<Trainer[]>("trainer-data/trainers.json")).ToList();
             Trainers.Sort((a, b) => a.Id - b.Id);
             foreach (var trainer in Trainers)
             {
                 trainer.PicName = "trainer-data/" + trainer.PicName;
             }
-            Top1.Clear();
-            TopOthers.Clear();
+            _level = 0;
+            Tooltip = GetNextIntervalTooltip(_level);
+            StateHasChanged();
+        }
+
+        public async void Reset20()
+        {
+            RankedTrainers.Clear();
+            Trainers.Clear();
+            Trainers = (await Http.GetFromJsonAsync<Trainer[]>("trainer-data/trainers.json")).Where(a=> _top20Ids.Contains(a.Id)).ToList();
+            Trainers.Sort((a, b) => a.Id - b.Id);
+            InitializeRank20();
+            foreach (var trainer in Trainers)
+            {
+                trainer.PicName = "trainer-data/" + trainer.PicName;
+            }
             _level = 0;
             Tooltip = GetNextIntervalTooltip(_level);
             StateHasChanged();
@@ -116,6 +135,16 @@ namespace YouthWithRoll.Pages
                 (58,50),(50,40),(40,37),(37,36),(36,35),(35,34),(34,33),
                 (33,30),(30,21),(21,20),(20,19),(19,18),
                 (18,12),(8,7),(7,6),(6,5),(5,4),(4,3),(3,2),(2,1),(1,0),
+                (12,11),(11,10),(10,8)
+            };
+        }
+
+        private void InitializeRank20()
+        {
+            _rankOrders = new List<(int, int)>()
+            {
+                (20,15),
+                (15,12),(8,7),(7,6),(6,5),(5,4),(4,3),(3,2),(2,1),(1,0),
                 (12,11),(11,10),(10,8)
             };
         }
