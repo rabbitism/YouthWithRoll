@@ -2,10 +2,60 @@
 
 <div class="container" style="max-width:50rem; background:#004edb">
     <img style="width:100%; height:auto" src="banner.jpg" alt="image" />
-    <div style="margin-top: -100px;">
+    <div style="margin-top: -100px; margin-left:auto; margin-right:auto; text-align:center">
         <button class="btn btn-danger" @onclick="Roll">摇一下</button>
         <button class="btn btn-danger" @onclick="Reset">重置</button>
         <p style="color:white">@Tooltip</p>
+        @if (Top1.Count > 0)
+        {
+            <div class="shadow-lg p-3 mb-5 bg-primary rounded" >
+                @if (Top1.Count > 0)
+                {
+                    <ul style="margin-top:16px">
+                        @foreach (Trainer trainer in Top1)
+                        {
+                            <li style="display:inline-block">
+                                <YouthWithRoll.Controls.TrainerCard TrainerModel="trainer"></YouthWithRoll.Controls.TrainerCard>
+                            </li>
+                        }
+                    </ul>
+                }
+                @if (Top23.Count > 0)
+                {
+                    <ul>
+                        @foreach (Trainer trainer in Top23)
+                        {
+                            <li style="display:inline-block">
+                                <YouthWithRoll.Controls.TrainerCard TrainerModel="trainer"></YouthWithRoll.Controls.TrainerCard>
+                            </li>
+                        }
+                    </ul>
+                }
+                @if (Top456.Count > 0)
+                {
+                    <ul>
+                        @foreach (Trainer trainer in Top456)
+                        {
+                            <li style="display:inline-block">
+                                <YouthWithRoll.Controls.TrainerCard TrainerModel="trainer"></YouthWithRoll.Controls.TrainerCard>
+                            </li>
+                        }
+                    </ul>
+                }
+                @if (Top789.Count > 0)
+                {
+                    <ul>
+                        @foreach (Trainer trainer in Top789)
+                        {
+                            <li style="display:inline-block">
+                                <YouthWithRoll.Controls.TrainerCard TrainerModel="trainer"></YouthWithRoll.Controls.TrainerCard>
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
+        }
+
         <ul>
             @foreach (Trainer trainer in RankedTrainers)
             {

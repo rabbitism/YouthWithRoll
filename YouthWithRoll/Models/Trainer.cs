@@ -11,5 +11,16 @@ namespace YouthWithRoll.Models
         public int Id { get; set; }
         public string PicName { get; set; }
         public int Rank { get; set; } = 0;
+
+        public static Trainer GetDummyTrainer()
+        {
+            return new Trainer()
+            {
+                Name = "???",
+                Id = 0,
+                PicName = "dummy.jpg",
+
+            };
+        }
     }
 }
