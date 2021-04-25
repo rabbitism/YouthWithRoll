@@ -71,7 +71,7 @@ namespace YouthWithRoll.Pages
             }
             for(int i = interval.Item1; i>interval.Item2; i--)
             {
-                int index = _random.Next(Trainers.Count-1);
+                int index = _random.Next(Trainers.Count);
                 Trainer trainer = Trainers[index];
                 trainer.Rank = i;
                 Trainers.RemoveAt(index);
