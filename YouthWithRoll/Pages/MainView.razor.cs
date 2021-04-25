@@ -21,9 +21,7 @@ namespace YouthWithRoll.Pages
         public string Tooltip = string.Empty;
 
         public List<Trainer> Top1 = new List<Trainer>();
-        public List<Trainer> Top23 = new List<Trainer>();
-        public List<Trainer> Top456 = new List<Trainer>();
-        public List<Trainer> Top789 = new List<Trainer>();
+        public List<Trainer> TopOthers = new List<Trainer>();
 
         [Inject]
         private HttpClient Http { get; set; }
@@ -95,14 +93,19 @@ namespace YouthWithRoll.Pages
 
         public async void Reset()
         {
-            RankedTrainers = new List<Trainer>();
+            RankedTrainers.Clear();
+            Trainers.Clear();
+            Trainers = (await Http.GetFromJsonAsync<Trainer[]>("trainer-data/trainers.json")).ToList();
+            Trainers.Sort((a, b) => a.Id - b.Id);
+            foreach (var trainer in Trainers)
+            {
+                trainer.PicName = "trainer-data/" + trainer.PicName;
+            }
             Top1.Clear();
-            Top23.Clear();
-            Top456.Clear();
-            Top789.Clear();
-            await OnInitializedAsync();
+            TopOthers.Clear();
             _level = 0;
             Tooltip = GetNextIntervalTooltip(_level);
+            StateHasChanged();
         }
 
         private void InitializeRanks()
@@ -120,14 +123,10 @@ namespace YouthWithRoll.Pages
         private void SetTopTrainers()
         {
             Top1.Add(RankedTrainers[0]);
-            Top23.Add(RankedTrainers[1]);
-            Top23.Add(RankedTrainers[2]);
-            Top456.Add(RankedTrainers[3]);
-            Top456.Add(RankedTrainers[4]);
-            Top456.Add(RankedTrainers[5]);
-            Top789.Add(RankedTrainers[6]);
-            Top789.Add(RankedTrainers[7]);
-            Top789.Add(RankedTrainers[8]);
+            for(int i = 1; i<=8; i++)
+            {
+                TopOthers.Add(RankedTrainers[i]);
+            }
         }
 
         private string GetNextIntervalTooltip(int level)

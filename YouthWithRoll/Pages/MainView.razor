@@ -6,9 +6,9 @@
         <button class="btn btn-danger" @onclick="Roll">摇一下</button>
         <button class="btn btn-danger" @onclick="Reset">重置</button>
         <p style="color:white">@Tooltip</p>
-        @if (Top1.Count > 0)
+        @*@if (Top1.Count > 0)
         {
-            <div class="shadow-lg p-3 mb-5 bg-primary rounded" >
+            <div class="shadow bg-light">
                 @if (Top1.Count > 0)
                 {
                     <ul style="margin-top:16px">
@@ -20,32 +20,11 @@
                         }
                     </ul>
                 }
-                @if (Top23.Count > 0)
+
+                @if (TopOthers.Count > 0)
                 {
                     <ul>
-                        @foreach (Trainer trainer in Top23)
-                        {
-                            <li style="display:inline-block">
-                                <YouthWithRoll.Controls.TrainerCard TrainerModel="trainer"></YouthWithRoll.Controls.TrainerCard>
-                            </li>
-                        }
-                    </ul>
-                }
-                @if (Top456.Count > 0)
-                {
-                    <ul>
-                        @foreach (Trainer trainer in Top456)
-                        {
-                            <li style="display:inline-block">
-                                <YouthWithRoll.Controls.TrainerCard TrainerModel="trainer"></YouthWithRoll.Controls.TrainerCard>
-                            </li>
-                        }
-                    </ul>
-                }
-                @if (Top789.Count > 0)
-                {
-                    <ul>
-                        @foreach (Trainer trainer in Top789)
+                        @foreach (Trainer trainer in TopOthers)
                         {
                             <li style="display:inline-block">
                                 <YouthWithRoll.Controls.TrainerCard TrainerModel="trainer"></YouthWithRoll.Controls.TrainerCard>
@@ -54,7 +33,7 @@
                     </ul>
                 }
             </div>
-        }
+        }*@
 
         <ul>
             @foreach (Trainer trainer in RankedTrainers)
