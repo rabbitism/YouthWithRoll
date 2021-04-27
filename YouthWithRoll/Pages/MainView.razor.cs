@@ -169,11 +169,11 @@ namespace YouthWithRoll.Pages
                 (int, int) interval = _rankOrders[level];
                 if (interval.Item1 - interval.Item2 == 1)
                 {
-                    return $"第{interval.Item1}名";
+                    return $"即将公布第{interval.Item1}名";
                 }
                 else
                 {
-                    return $"第{interval.Item1}-{interval.Item2+1}名";
+                    return $"即将公布第{interval.Item1}-{interval.Item2+1}名";
                 }
             }
         }
