@@ -16,7 +16,7 @@ namespace YouthWithRoll.Pages
         private Random _random = new Random();
         private HashSet<int> _top20Ids = new HashSet<int>()
         {
-            10,22,23,24,31,45,48,49,50,56,62,71,74,75,77,82,90,93,97,98
+            10,22,23,24,31,45,48,49,50,56,62,71,74,75,77,82,90,93,97
         };
         public List<Trainer> Trainers { get; set; } = new List<Trainer>();
 
@@ -143,7 +143,7 @@ namespace YouthWithRoll.Pages
         {
             _rankOrders = new List<(int, int)>()
             {
-                (20,15),
+                (19,15),
                 (15,12),(8,7),(7,6),(6,5),(5,4),(4,3),(3,2),(2,1),(1,0),
                 (12,11),(11,10),(10,8)
             };
